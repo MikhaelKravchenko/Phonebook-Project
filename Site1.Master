@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="PhoneBook2.Site1" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>HRA Phone Book</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Style.css" rel="stylesheet" type="text/css" />
+    </head>
+<body>
+    <form id="form1" runat="server">
+        <div class="content">
+        <div>
+        <asp:Table ID="Table1" runat="server" Width="100%">
+                 <asp:TableRow>
+                     <asp:TableCell  HorizontalAlign="left" VerticalAlign="Middle" >
+                         
+                         <%-- Wrap master page logo with hyperlink to homepage --%>
+                         <asp:hyperlink id="link" runat="server">
+                            <asp:image id="img" runat="server" img src ="Images/phone%20book.jpg" />
+                         </asp:hyperlink>
+                     
+                     </asp:TableCell>
+                     <asp:TableCell  HorizontalAlign ="Right" VerticalAlign="Middle" >
+                          <asp:Label  runat="server" ID ="Label1"  >180 Water St #1, New York, NY 10038 <br />
+                              Phone:(212) 504-4115
+                          </asp:Label >
+                     </asp:TableCell>
+                 </asp:TableRow>
+             </asp:Table>
+      
+           
+
+            <asp:Table runat="server" ID ="tblWelcome" >
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label runat ="server" ID ="lblWelcome" Visible="false" ></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+
+            </div>
+            </div>
+        <div>   
+        <asp:Menu ID="Menu1" runat="server" Orientation ="Horizontal"  CssClass ="menu_1">
+                        <Items>
+                            <asp:MenuItem  Text ="Directory"> 
+
+                                 <asp:MenuItem Text ="Home"  NavigateUrl="~/Default.aspx">
+
+                                </asp:MenuItem>
+                               <%-- user must be validated when clicking on contacts, otherwise, redirect to login page. --%>
+                       
+                                <asp:MenuItem Text="Contacts" NavigateUrl="~/search.aspx"> 
+                                     <%--<authentication mode="Forms">
+                                        <forms loginUrl="Default.aspx" />
+                                     </authentication>--%>
+
+                                </asp:MenuItem>
+
+                            </asp:MenuItem>
+                           
+
+                        </Items>
+                       
+                  </asp:Menu>
+             
+            <br/>
+           
+                
+                  
+            </div>
+        <br />
+      
+       <div id="mainContent">
+        <asp:ContentPlaceHolder id="cphMainContent" runat="server">
+           
+        </asp:ContentPlaceHolder>
+      </div>
+    
+
+      
+<div id="footer">
+    
+
+    
+    <asp:Table runat="server" HorizontalAlign="Center" ><asp:TableRow> <asp:TableCell >
+ <img src="http://www.telephoneart.com/fonpic/whitwwe500.jpg" alt="Powered by HRA" style="height: 80px; width: 100px" /> copyright @ 2015 by the HRA.
+        </asp:TableCell></asp:TableRow></asp:Table>
+    </div>
+ </form>
+</body>
+</html>
+
